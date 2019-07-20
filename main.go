@@ -24,10 +24,10 @@ nowDate.
 	fmt.Println(nowDate)
 }
 */
-func main() {
+func Cal(birthDateY int, birthDateM int, birthDateD int, nowDateY int, nowDateM int, nowDateD int) (int, int, int, int, int) {
 	// The leap year 2016 had 366 days.
-	birthDate := Date(1996, 4, 30)
-	nowDate := Date(2019, 7, 20)
+	birthDate := Date(birthDateY, birthDateM, birthDateD)
+	nowDate := Date(nowDateY, nowDateM, nowDateD)
 	//days := nowDate.Sub(birthDate).Hours() / 24
 	//weeks := nowDate.Sub(birthDate).Hours()/ (24*7)
 	seconds := nowDate.Sub(birthDate).Seconds()
@@ -43,6 +43,7 @@ func main() {
 	fmt.Println("hours ", int(hours))
 	fmt.Println("day ", int(days))
 	fmt.Println(int(weeks), " weeks ", int(days)-int(weeks)*7, " days ")
+	return int(seconds), int(minutes), int(hours), int(days), int(days) - int(weeks)*7
 }
 
 func Date(year, month, day int) time.Time {
